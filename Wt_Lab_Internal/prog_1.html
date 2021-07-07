@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Search for City</title>
+</head>
+<body>
+	<h1> Search the Place to travel!!</h1>
+	<h2>Pooja Rai <br> 1NT18IS111</h2>
+	<input type="text" id="search">
+	<button onclick="getLoc();">Submit</button>
+	<p id="demo"></p>
+    <p id="demo1"></p>
+    <p id="demo2"></p>
+    <p id="demo3"></p>
+	<p id="demo4"></p>
+	
+	<h2> Add the Place information!!</h2>
+	
+	<form>
+		<label id="name">Name:</label><br>
+		<input type="text" id="name" name="name" value=""><br>
+		<label id="state">State:</label><br>
+		<input type="text" id="state" name="state" value=""><br>
+		<label id="desc">Description:</label><br>
+		<input type="text" id="desc" name="desc" value=""><br>
+		<label id="price">Price:</label><br>
+		<input type="text" id="price" name="price" value=""><br>
+		<label id="rate">Rating:</label><br>
+		<input type="text" id="rate" name="rate" value=""><br><br>
+		<button onclick="addLoc();">Submit</button>
+	  </form> 
+	  
+	  
+	  
+</body>
+<script type="text/javascript">
+	
+	let locations = [
+			{
+				"Name" : "Jog Falls",
+				"State" : "Karnataka",
+                "Description" : "Jog Falls, is a waterfall on the Sharavati river located in the Western Ghats Siddapur taluk, Uttara Kannada district, and the view point is located in Sagara Taluk of Shimoga district It is the second highest plunge waterfall in India.",
+                "Price" : "2000/-",
+                "Rating" : "4.2"
+			},
+			{
+				"Name" : "Taj Mahal",
+				"State" : "Uttar Pradesh",
+                "Description" : "The Taj Mahal, originally the Rauza-i-munawwara is an ivory-white marble mausoleum on the southern bank of the river Yamuna in the Indian city of Agra. It was commissioned in 1632 by the Mughal emperor Shah Jahan to house the tomb of his favourite wife, Mumtaz Mahal; it also houses the tomb of Shah Jahan himself.",
+                "Price" : "5000/-",
+                "Rating" : "4.8"
+			},
+			{
+				"Name" : "Qutub Minar",
+				"State" : "Delhi",
+                "Description" : "The Qutb Minar, also spelled as Qutub Minar and Qutab Minar, is a minaret and victory tower that forms part of the Qutb complex. It is a UNESCO World Heritage Site in the Mehrauli area of New Delhi, India.",
+                "Price" : "1500/-",
+                "Rating" : "3.9"
+			},
+            {
+                "Name" : "Red Fort",
+				"State" : "Delhi",
+                "Description" : "The Red Fort is a historic fort in the city of Delhi in India that served as the main residence of the Mughal Emperors. Emperor Shah Jahan commissioned construction of the Red Fort on 12 May 1638, when he decided to shift his capital from Agra to Delhi.",
+                "Price" : "4000/-",
+                "Rating" : "4.3"
+            },
+            {
+                "Name" : "Gateway Of India",
+				"State" : "Mumbai",
+                "Description" : "The Gateway of India is an arch-monument built in the early twentieth century in the city of Mumbai, in the Indian state of Maharashtra. It was erected to commemorate the landing in December 1911 at Wellington Pier, Mumbai of King-Emperor George V and Queen-Empress Mary, the first British monarch to visit India.",
+                "Price" : "3000/-",
+                "Rating" : "4.4"
+            }
+		];
+
+	function getLoc()
+	{
+		let L_name = document.getElementById("search").value;
+		let result;
+		for (var i = 0; i < locations.length; i++) {
+			if(locations[i].Name == L_name)
+				 result = locations[i];
+		}
+
+		document.getElementById("demo").innerHTML = result.Name;
+		document.getElementById("demo1").innerHTML = result.State;
+        document.getElementById("demo2").innerHTML = result.Description;
+		document.getElementById("demo3").innerHTML = result.Price;
+        document.getElementById("demo4").innerHTML = result.Rating;
+		console.log(result);
+	}
+
+	function addLoc()
+	{
+		let loc_name = document.getElementById("name").value;
+		let loc_state = document.getElementById("state").value;
+		let loc_desc = document.getElementById("desc").value;
+		let loc_price = document.getElementById("price").value;
+		let loc_rating = document.getElementById("rate").value;
+
+
+			let new_loc = {
+				"Name" : loc_name,
+				"State" : loc_state,
+                "Description" : loc_desc,
+                "Price" : loc_price,
+                "Rating" : loc_rating
+			};
+			locations.push(new_loc);
+            console.log(new_loc);
+	}
+
+</script>
+</html>
